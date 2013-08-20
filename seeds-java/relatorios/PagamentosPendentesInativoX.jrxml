@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="PagamentosPendentes" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="88012701-b84a-4179-9488-e087f818994e">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="VALOR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     contas_receber_contrato.`codigo` AS contas_receber_contrato_codigo,
+     contas_receber_contrato.`codigo_cliente` AS contas_receber_contrato_codigo_cliente,
+     contas_receber_contrato.`codigo_turma` AS contas_receber_contrato_codigo_turma,
+     contas_receber_contrato.`parcela` AS contas_receber_contrato_parcela,
+     contas_receber_contrato.`data_emissao` AS contas_receber_contrato_data_emissao,
+     contas_receber_contrato.`data_pagamento` AS contas_receber_contrato_data_pagamento,
+     contas_receber_contrato.`desconto` AS contas_receber_contrato_desconto,
+     contas_receber_contrato.`valor` AS contas_receber_contrato_valor,
+     contas_receber_contrato.`total` AS contas_receber_contrato_total,
+     contas_receber_contrato.`valor_pago` AS contas_receber_contrato_valor_pago,
+     contas_receber_contrato.`juros` AS contas_receber_contrato_juros,
+     contas_receber_contrato.`codigo_contrato` AS contas_receber_contrato_codigo_contrato,
+     cliente.`NOME` AS cliente_NOME,
+     cliente.`TELEFONE` AS cliente_TELEFONE,
+     cliente.`ENDERECO` AS cliente_ENDERECO,
+     cliente.`NUMERO` AS cliente_NUMERO,
+     cliente.`BAIRRO` AS cliente_BAIRRO,
+     cliente.`UF` AS cliente_UF,
+     cliente.`CIDADE` AS cliente_CIDADE,
+     cliente.`EMAIL` AS cliente_EMAIL,
+     cliente.`CELULAR` AS cliente_CELULAR,
+     cliente.`CEP` AS cliente_CEP
+FROM
+     `cliente` cliente INNER JOIN `contas_receber_contrato` contas_receber_contrato ON cliente.`CODIGO` = contas_receber_contrato.`codigo_cliente`
+WHERE
+     contas_receber_contrato.data_pagamento BETWEEN $P{VALOR} and $P{VALOR}]]>
+	</queryString>
+	<field name="contas_receber_contrato_codigo" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_codigo_cliente" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_codigo_turma" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_parcela" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_data_emissao" class="java.lang.String"/>
+	<field name="contas_receber_contrato_data_pagamento" class="java.lang.String"/>
+	<field name="contas_receber_contrato_desconto" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_valor" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_total" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_valor_pago" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_juros" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_codigo_contrato" class="java.lang.Integer"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<field name="cliente_TELEFONE" class="java.lang.String"/>
+	<field name="cliente_ENDERECO" class="java.lang.String"/>
+	<field name="cliente_NUMERO" class="java.lang.String"/>
+	<field name="cliente_BAIRRO" class="java.lang.String"/>
+	<field name="cliente_UF" class="java.lang.String"/>
+	<field name="cliente_CIDADE" class="java.lang.String"/>
+	<field name="cliente_EMAIL" class="java.lang.String"/>
+	<field name="cliente_CELULAR" class="java.lang.String"/>
+	<field name="cliente_CEP" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="227" height="48"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7a320c88-e132-42fc-9ec0-833f63244bed" x="0" y="48" width="555" height="31"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pagamentos - Pendentes]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="6e460df9-c62e-4955-90f9-2d35cb937c3b" x="506" y="0" width="49" height="38"/>
+				<imageExpression><![CDATA["..\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="18" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="19" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="77" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="9b6de355-f86a-4d03-b8a0-f0dd83bea355" x="0" y="1" width="555" height="20" isRemoveLineWhenBlank="true" backcolor="#FFCCFF">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement uuid="8dc55c4e-daab-45e6-99e5-c5e0fcc92ff3" x="131" y="1" width="35" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_codigo}]]></textFieldExpression>
+			</textField>
+			<textField pattern="yyyy//MM/dd">
+				<reportElement uuid="9309ecbd-4060-4c3a-b3a2-b48b36733c7f" x="235" y="0" width="58" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_data_pagamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="3c6951ed-b710-4fda-b828-403dec903093" x="354" y="0" width="61" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_valor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="0bac7b55-d83a-45f3-8163-dbfaada8c536" x="485" y="1" width="70" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_valor_pago}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="914d8ef5-557d-47fc-8822-26a51c344455" x="78" y="1" width="43" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_codigo_contrato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0aae558e-e981-4917-ae65-d1dfb1245464" x="121" y="1" width="10" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[/]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="29a3b677-019a-420f-93a5-8a6d3d5adc4d" x="56" y="21" width="176" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Cliente]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c495159e-9bdc-4716-b858-e4ea41864c52" x="0" y="21" width="56" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9b436e1d-90f3-40d5-ad4b-0b91213b4641" x="232" y="21" width="80" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3a1840fd-432c-454b-8314-1b34070082dd" x="312" y="21" width="81" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d3b1478b-fbc8-4463-bf9f-a5653356cf41" x="393" y="21" width="162" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c785e5ca-a4d9-450a-9034-8e114dbb983b" x="415" y="0" width="70" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Valor Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66cb5afc-4893-48f1-9ff9-27fec11a7c4c" x="293" y="0" width="61" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e4e65636-d70f-45af-b6b5-df2bd290d593" x="166" y="0" width="69" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Pagamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b7d70d3d-4a43-4814-bc2f-74b0e1fc2a21" x="0" y="0" width="78" height="21" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Contrato/Reg.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="ef8d0e94-7416-4704-8d23-853b85883a0b" x="0" y="41" width="56" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_codigo_cliente}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3c2e6e85-d5c0-4578-9148-ca7f93207a56" x="56" y="41" width="176" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a33c6668-c520-413a-8db9-acbd5bcda932" x="232" y="41" width="80" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente_CELULAR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2a94efc5-fb7e-4ea0-bd5b-287495861b11" x="312" y="41" width="81" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente_TELEFONE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1e62cdd5-9f8b-4dcb-ab48-aa6d802a6803" x="393" y="41" width="162" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == 0.00) || new Boolean($F{contas_receber_contrato_valor}>$F{contas_receber_contrato_valor_pago} && $F{contas_receber_contrato_total} == null)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{cliente_EMAIL}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="057d234e-6e68-4813-b415-a0c148730629" x="0" y="34" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="294b9f49-7da1-4284-bece-008699a44812" x="513" y="34" width="42" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="43e76743-6098-4972-9885-6a8a68335862" x="226" y="34" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2fb4440d-b843-4d1c-af60-9eaf0dcfcde5" x="432" y="34" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="057d234e-6e68-4813-b415-a0c148730629" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="294b9f49-7da1-4284-bece-008699a44812" x="513" y="30" width="42" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="43e76743-6098-4972-9885-6a8a68335862" x="226" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="2fb4440d-b843-4d1c-af60-9eaf0dcfcde5" x="432" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f6672bfc-0390-4c1d-b39d-cd6aea47124e" x="0" y="16" width="555" height="14" forecolor="#FF0000"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[* Registros antigos.]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

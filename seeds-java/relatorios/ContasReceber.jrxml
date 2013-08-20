@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ContasPagar" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a83ff8d8-88ab-435a-b705-684885b4fd6f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     contas_receber.`CODIGO` AS contas_receber_CODIGO,
+     contas_receber.`DESCRICAO` AS contas_receber_DESCRICAO,
+     contas_receber.`EMISSAO` AS contas_receber_EMISSAO,
+     contas_receber.`VENCIMENTO` AS contas_receber_VENCIMENTO,
+     contas_receber.`VALOR` AS contas_receber_VALOR,
+     contas_receber.`STATUS` AS contas_receber_STATUS
+FROM
+     `contas_receber` contas_receber]]>
+	</queryString>
+	<field name="contas_receber_CODIGO" class="java.lang.Integer"/>
+	<field name="contas_receber_DESCRICAO" class="java.lang.String"/>
+	<field name="contas_receber_EMISSAO" class="java.lang.String"/>
+	<field name="contas_receber_VENCIMENTO" class="java.lang.String"/>
+	<field name="contas_receber_VALOR" class="java.lang.Float"/>
+	<field name="contas_receber_STATUS" class="java.lang.String"/>
+	<variable name="Pagou" class="java.lang.String">
+		<variableExpression><![CDATA[new Boolean($F{contas_receber_STATUS} == "0")]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<image>
+				<reportElement uuid="6e460df9-c62e-4955-90f9-2d35cb937c3b" x="506" y="0" width="49" height="38"/>
+				<imageExpression><![CDATA["..\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="7a320c88-e132-42fc-9ec0-833f63244bed" x="0" y="48" width="555" height="31"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Contas à receber]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="227" height="48"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="42" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e1738b38-d817-46ad-b0ea-8ec6c1b2f726" x="0" y="22" width="555" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="afe4d42e-c112-4e1b-bea0-76afcdf7f7ee" x="0" y="22" width="62" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="17da92ef-6f3f-4cb2-9707-f52bd7d2ffb7" x="62" y="22" width="190" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Descrição]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dda8ea80-5f39-449c-8685-a5f1ace22cab" x="252" y="22" width="77" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Emissão]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="46a56640-7719-4b8f-8be9-6066167d9873" x="329" y="22" width="79" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Vencimento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d869d7f5-7bf8-48b3-85d4-bad67ad92c17" x="408" y="22" width="81" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c933267d-828a-40f1-82d8-4afb275b8419" x="489" y="22" width="66" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Status]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="39" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="15e202b6-8ca4-4ef3-9403-de9ffe1fb7bb" x="0" y="0" width="555" height="20" backcolor="#FFCCFF">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_STATUS} == "1")]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="9be0077f-9250-4cce-97ae-6c78c8be8d1e" x="0" y="0" width="555" height="20" backcolor="#CCCCFF">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_STATUS} == "0")]]></printWhenExpression>
+				</reportElement>
+			</rectangle>
+			<textField>
+				<reportElement uuid="42099e7f-968a-4d37-b2a2-973d337d66ae" x="0" y="0" width="62" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="652adabb-e930-4201-9762-e9ea4657471c" x="62" y="0" width="190" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_DESCRICAO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="d53e125c-05a5-4606-9680-eed1e5159c30" x="252" y="0" width="77" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_EMISSAO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="d630528f-4d21-4f26-8fa9-cd186dc85d82" x="329" y="0" width="79" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_VENCIMENTO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="0d7b9653-5ad8-4298-97f9-354117da4fca" x="408" y="0" width="81" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_VALOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f62702bf-e957-4523-9585-6c7b38bb725a" x="489" y="0" width="66" height="20">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_STATUS} == "0")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Pago]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="635795c1-149d-4f50-922b-82821fdf5844" x="489" y="0" width="66" height="20">
+					<printWhenExpression><![CDATA[new Boolean($F{contas_receber_STATUS} == "1")]]></printWhenExpression>
+				</reportElement>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Não Pago]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<textField evaluationTime="Report">
+				<reportElement uuid="294b9f49-7da1-4284-bece-008699a44812" x="513" y="34" width="42" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="057d234e-6e68-4813-b415-a0c148730629" x="0" y="34" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2fb4440d-b843-4d1c-af60-9eaf0dcfcde5" x="432" y="34" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="43e76743-6098-4972-9885-6a8a68335862" x="226" y="34" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<textField evaluationTime="Report">
+				<reportElement uuid="294b9f49-7da1-4284-bece-008699a44812" x="513" y="30" width="42" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="057d234e-6e68-4813-b415-a0c148730629" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2fb4440d-b843-4d1c-af60-9eaf0dcfcde5" x="432" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="43e76743-6098-4972-9885-6a8a68335862" x="226" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

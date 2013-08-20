@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="AlunoTurmaAnalitico" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="990b0530-41a2-4802-bca3-e2e6304c62d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     matricula.`CODIGO` AS matricula_CODIGO,
+     matricula.`ALUNO` AS matricula_ALUNO,
+     matricula.`TURMA` AS matricula_TURMA,
+     turma.`CODIGO` AS turma_CODIGO,
+     turma.`DIA` AS turma_DIA,
+     turma.`HI` AS turma_HI,
+     turma.`HF` AS turma_HF,
+     turma.`FUNCIONARIO` AS turma_FUNCIONARIO,
+     cliente.`CODIGO` AS cliente_CODIGO,
+     cliente.`NOME` AS cliente_NOME,
+     cliente.`TELEFONE` AS cliente_TELEFONE,
+     cliente.`CELULAR` AS cliente_CELULAR,
+     professor.`CODIGO` AS professor_CODIGO,
+     professor.`NOME` AS professor_NOME,
+     turma.`CURSO` AS turma_CURSO
+FROM
+     `cliente` cliente INNER JOIN `matricula` matricula ON cliente.`CODIGO` = matricula.`ALUNO`
+     INNER JOIN `turma` turma ON matricula.`TURMA` = turma.`CODIGO`
+     INNER JOIN `professor` professor ON turma.`FUNCIONARIO` = professor.`CODIGO`
+ORDER BY
+     matricula.turma ASC]]>
+	</queryString>
+	<field name="matricula_CODIGO" class="java.lang.Integer"/>
+	<field name="matricula_ALUNO" class="java.lang.Integer"/>
+	<field name="matricula_TURMA" class="java.lang.Integer"/>
+	<field name="turma_CODIGO" class="java.lang.Integer"/>
+	<field name="turma_DIA" class="java.lang.String"/>
+	<field name="turma_HI" class="java.lang.String"/>
+	<field name="turma_HF" class="java.lang.String"/>
+	<field name="turma_FUNCIONARIO" class="java.lang.Integer"/>
+	<field name="cliente_CODIGO" class="java.lang.Integer"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<field name="cliente_TELEFONE" class="java.lang.String"/>
+	<field name="cliente_CELULAR" class="java.lang.String"/>
+	<field name="professor_CODIGO" class="java.lang.Integer"/>
+	<field name="professor_NOME" class="java.lang.String"/>
+	<field name="turma_CURSO" class="java.lang.String"/>
+	<variable name="matricula_Turma_Total" class="java.lang.Integer" resetType="Group" resetGroup="matricula_TURMA" calculation="System">
+		<variableExpression><![CDATA[$V{matricula_TURMA_COUNT}]]></variableExpression>
+	</variable>
+	<group name="matricula_TURMA" isStartNewPage="true">
+		<groupExpression><![CDATA[$F{matricula_TURMA}]]></groupExpression>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7a320c88-e132-42fc-9ec0-833f63244bed" x="0" y="48" width="555" height="31"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Alunos por turma]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="227" height="48"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="6e460df9-c62e-4955-90f9-2d35cb937c3b" x="506" y="0" width="49" height="38"/>
+				<imageExpression><![CDATA["..\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e1738b38-d817-46ad-b0ea-8ec6c1b2f726" x="0" y="18" width="555" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="97b0ac58-c71c-47c0-88a6-a34824255e29" x="0" y="18" width="54" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Turma:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bf8bd607-f133-44cd-8c68-b5ba5da586c3" x="306" y="18" width="17" height="20"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[às]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3b3ea2fc-a589-4b50-8e4d-3e7988fe47bf" x="106" y="18" width="82" height="20" forecolor="#000000"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="SansSerif" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Total de Alunos]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="415b14e3-1029-450c-8361-bfc20ec697f4" x="54" y="18" width="52" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{turma_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="57ea0368-da55-488c-a15e-258625438e91" x="264" y="18" width="42" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{turma_HI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="238abf70-e7a2-4177-89be-12bdd606f6b2" x="323" y="18" width="37" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{turma_HF}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cbd96036-9353-417f-a11a-f0eb9c20644f" x="189" y="18" width="75" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{turma_DIA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0b956743-d390-4757-bf72-98830e5c9c5f" x="360" y="18" width="195" height="20"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_NOME}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="62" splitType="Stretch">
+			<textField evaluationTime="Page" isBlankWhenNull="false">
+				<reportElement uuid="c99f39b6-fa18-4993-8a8a-71c3f42f11f2" isPrintRepeatedValues="false" x="106" y="0" width="82" height="20" isRemoveLineWhenBlank="true">
+					<printWhenExpression><![CDATA[new Boolean($V{PAGE_COUNT} == 1)]]></printWhenExpression>
+				</reportElement>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{matricula_TURMA_COUNT}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1b3c3e18-8f60-4aae-ad15-ce030376881c" isPrintRepeatedValues="false" x="0" y="0" width="106" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{turma_CURSO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement uuid="0dfd85a1-4947-4d77-b992-54601486d885" x="435" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8962698b-bdaa-42aa-b956-1be6d89def07" x="229" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0c42b107-5907-4351-a668-0791b317de4b" x="516" y="30" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="4493b189-d0da-442f-89b6-9ee0a118a4d0" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<textField>
+				<reportElement uuid="0dfd85a1-4947-4d77-b992-54601486d885" x="435" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8962698b-bdaa-42aa-b956-1be6d89def07" x="229" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0c42b107-5907-4351-a668-0791b317de4b" x="516" y="30" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="4493b189-d0da-442f-89b6-9ee0a118a4d0" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</lastPageFooter>
+</jasperReport>

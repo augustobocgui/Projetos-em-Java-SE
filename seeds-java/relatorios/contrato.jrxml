@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contrato" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0a03e02b-1189-4d07-af84-af62e168a9b4">
+	<property name="ireport.zoom" value="1.1000000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1414"/>
+	<parameter name="CONTRATANTE" class="java.lang.String"/>
+	<parameter name="CONTRATADA" class="java.lang.String"/>
+	<parameter name="ALUNO" class="java.lang.String"/>
+	<parameter name="MENSALIDADE" class="java.lang.String"/>
+	<parameter name="MATERIAL" class="java.lang.String"/>
+	<parameter name="TOTAL" class="java.lang.String"/>
+	<parameter name="PARCELAS" class="java.lang.String"/>
+	<parameter name="PROFISSAO" class="java.lang.String"/>
+	<parameter name="RUA" class="java.lang.String"/>
+	<parameter name="NUMERO" class="java.lang.String"/>
+	<parameter name="BAIRRO" class="java.lang.String"/>
+	<parameter name="CIDADE" class="java.lang.String"/>
+	<parameter name="CPF" class="java.lang.String"/>
+	<parameter name="RUAC" class="java.lang.String"/>
+	<parameter name="NUMEROC" class="java.lang.String"/>
+	<parameter name="BAIRROC" class="java.lang.String"/>
+	<parameter name="CIDADEC" class="java.lang.String"/>
+	<parameter name="CNPJC" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     contrato.`codigo` AS contrato_codigo,
+     contrato.`codigo_aluno` AS contrato_codigo_aluno,
+     contrato.`LOCALIDADE` AS contrato_LOCALIDADE
+FROM
+     `contrato` contrato]]>
+	</queryString>
+	<field name="contrato_codigo" class="java.lang.Integer"/>
+	<field name="contrato_codigo_aluno" class="java.lang.Integer"/>
+	<field name="contrato_LOCALIDADE" class="java.lang.Integer"/>
+	<title>
+		<band height="802" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="6445f02a-f3db-4836-a40e-aa60b6bc5b9d" x="17" y="3" width="521" height="32"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="13" isBold="true" isUnderline="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[CONTRATO DE PRESTAÇÃO DE SERVIÇOS EDUCACIONAIS - SEEDS]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="187b9f5b-9ca9-401c-93d3-0c5d0678356e" x="92" y="55" width="446" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{CONTRATADA}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="57584913-1af4-4f34-ac0b-d14ab9b27417" x="17" y="35" width="521" height="20" isRemoveLineWhenBlank="true"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['CONTRATANTE: '+$P{CONTRATANTE}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="510a3569-2f76-497a-8e9d-6e446dd7f794" x="17" y="55" width="75" height="20"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CONTRATADA: ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3a19bdb6-05e5-4ec9-8c45-22775befc96b" x="17" y="75" width="521" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['ALUNO BENEFICIÁRIO: '+$P{ALUNO}.toUpperCase()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ba333559-e650-4083-a653-bedc764d4f26" x="17" y="95" width="41" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CURSO: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1d03f54f-ddeb-4282-8c61-8a06fde0dda7" x="58" y="95" width="480" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[[      ] INGLÊS BÁSICO       [      ] INGLÊS INTERMEDIÁRIO       [      ]  OUTRO MÓDULO: ___________________________]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a5bdc425-5a5f-47da-95d5-891912ad753e" x="17" y="115" width="113" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR DA MENSALIDADE:   ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="8dfd313f-b845-483b-acfa-0ec8471b956b" x="130" y="115" width="90" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['R$ '+$P{MENSALIDADE}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="eaac3e4c-3528-4af2-a2c3-31741429923d" x="353" y="115" width="185" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['R$ '+$P{MATERIAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1fdc4d04-c33f-4b6e-aee8-9c3625c7b2db" x="220" y="115" width="133" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR DA TAXA DE MATERIAL:  ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c0fa93d0-e47c-43bd-a5bc-fada340abd31" x="0" y="0" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="2cffbcb7-abe3-476b-b854-9cd5a52b6c24" x="0" y="1" width="1" height="777"/>
+			</line>
+			<line>
+				<reportElement uuid="a3193cc6-9c6b-4888-b1d0-d761281e9ed6" x="555" y="0" width="1" height="779"/>
+			</line>
+			<staticText>
+				<reportElement uuid="c6556908-dc86-467f-accd-e4c48c4eaee4" x="17" y="135" width="159" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[VALOR TOTAL DO CURSO DE INGLÊS:  ]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="f9b74939-bf52-4cbf-9a0c-1c4986a7ea65" x="176" y="135" width="78" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['R$ '+$P{TOTAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="481c27a2-66fa-488b-962d-bf9fae63231e" x="254" y="135" width="68" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIVIDIDAS  EM: (]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b3744a2-0d7d-4a6e-8717-63d15f7cd8bd" x="353" y="135" width="8" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[)]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="16cf9250-c888-41cd-abef-dbf3081c51c1" x="322" y="135" width="31" height="20" isRemoveLineWhenBlank="true"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{PARCELAS}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="120bcf23-5227-4125-9934-e7fbeb9d6c0e" x="361" y="135" width="177" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[PARCELAS]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8b316ab3-1c8f-417a-9108-445739c58f4a" x="1" y="778" width="554" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="15889b99-6190-4b81-bb74-09e09e767190" x="17" y="394" width="521" height="36"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['II) Pelos serviços educacionais referidos na Cláusula I, o CONTRATANTE pagará à CONTRATADA, no ano de 2012 e prolongando-se pelo ano de 2013, UMA MENSALIDADE ESCOLAR DIVIDIDA EM ('+$P{PARCELAS}+') PARCELAS, A SEREM PAGAS NAS DATAS MENCIONADAS NESTE INSTRUMENTO.']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="dd5fbc1a-6029-4146-a2e0-a56ecf85d6bb" x="17" y="239" width="521" height="150"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[I) O objeto do presente acordo é a prestação serviços educacionais nos anos letivos de 20_____ e 20_____, correspondentes ao curso ___________________________, no horário já pré-definido como _____________________________ , a serem ministrados ao aluno beneficiário em conformidade com o previsto na legislação de ensino e no Estatuto Interno da CONTRATADA.
+
+§ 1º - Como serviços mencionados nesta cláusula se entendem os obrigatoriamente prestados a toda turma, coletivamente, e ou de caráter individual ou ainda em grupo.
+§  2º - O ALUNO BENEFICIÁRIO ESTARÁ SUJEITO ÀS NORMAS DO REGIMENTO ESCOLAR, À DISPOSIÇÃO DO CONTRATAN-
+            TE, CUJAS DETERMINAÇÕES INTEGRAM O PRESENTE INSTRUMENTO PARA APLICAÇÃO SUBSIDIÁRIA E EM
+            CASOS MISSOS.
+§  3º - NÃO ESTÃO INCLUÍDOS NESTE ACORDO OS SERVIÇOS ESPECIAIS DE RECUPERAÇÃO, REFORÇO, DEPENDÊNCIA,
+            ADAPTAÇÃO, RECICLAGEM, TRANSPORTE ESCOLAR, SEGUNDA CHAMADA, OS OPCIONAIS E DE USO FACULTATIVO PARA O ALUNO, BEM COMO SEGURO DE VIDA E DE ACIDENTES PESSOAIS EM FAVOR DO ALUNO, O UNIFORME, MERENDA E MATERIAL DIDÁTICO DE USO INDIVIDUAL E OBRIGATÓRIO, QUE PODERÃO SER OBJETO DE AJUSTE À PARTE.
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ad3a3828-bd02-447d-a1d0-2fb6bfb9ee49" x="17" y="430" width="521" height="236"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[ § 1º - A primeira parcela será paga no ato da matrícula, como sinal, arras e princípio de pagamento e condição para a concretização
+          e celebração do contrato de prestação de serviços, FICANDO   ESTABELECIDO QUE, CASO O CONTRATANTE DESISTA DA  MATRÍCULA, PERDERÁ EM FAVOR DA CONTRATADA O VALOR DA PRIMEIRA PARCELA DA ANUIDADE.
+§ 2º - As demais parcelas deverão ser pagas, sucessiva e mensalmente, a partir do primeiro mês do início das aulas, com vencimento
+          no quinto dia útil de cada mês.
+§ 3º - Haverá tolerância para pagamento de cada parcela da mensalidade, sem acréscimo de multa ou correção, até o dia 07 (sete) do
+          mês subseqüente ao do vencimento, sem  que essa  tolerância caracterize novação contratual, mas, apenas e tão somente, mera
+         liberalidade, que não implica na alteração das datas previstas para pagamento das citadas parcelas ou na criação de qualquer  direito.
+§ 4º - Havendo atraso de pagamento de qualquer parcela por atraso superior ao mencionado no parágrafo anterior, o CONTRATANTE
+         pagará, além do valor principal:
+a)      10% ( dois  por cento ) do valor da parcela, como MULTA;
+b)       A ATUALIZAÇÃO MONETÁRIA DO VALOR PRINCIPAL, computada desde o dia 1º ( primeiro ) do mês subseqüente ao do venci-
+          mento normal da obrigação, calculada  pelo  Índice  Nacional  de Preços ao Consumidor ( INPC ) do IBGE    (ou outro índice oficial que vier a substituí-lo) do mês anterior, proporcionalmente ao número de dias decorridos até a real e efetiva quitação e, sendo superior o atraso a 30 ( trinta ) dias, pelo INPC acumulado desde a data inicial da inadimplência, MAIS JUROS DE MORA LEGAIS.
+§ 5º -  As parcelas de que trata esta cláusula deverão ser pagas à CONTRATADA  em   seu   estabelecimento  mediante aposição do
+          recibo ou documento correspondente, podendo ser atribuída a instituições financeiras a execução dessa tarefa, respeitados, até a data do vencimento, os valores nominais das parcelas descritas nesta cláusula e, após o vencimento, serem utilizados mecanismos próprios de cobrança incluindo a inscrição do devedor em cadastro ou serviços de proteção ao crédito.
+(CONTINUA NO VERSO)]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f5a0adc5-1c4a-4875-9cba-7811029e8f04" x="17" y="155" width="521" height="84"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA['                     Termo de acordo para prestação de serviços educacionais (POR ADESÃO) que entre si fazem '+$P{CONTRATANTE}+', brasileiro (a), de profissão '+$P{PROFISSAO}+', residente a '+$P{RUA}+', nº '+$P{NUMERO}+', bairro '+$P{BAIRRO}+', na cidade de '+$P{CIDADE}+' (MG), CPF nº '+$P{CPF}+', como CONTRATANTE, sendo beneficiário o aluno acima citado e, como CONTRATADA, a '+$P{CONTRATADA}+', estabelecida na '+$P{RUAC}+', '+$P{NUMEROC}+' - bairro '+$P{BAIRROC}+', nesta cidade de '+$P{CIDADEC}+' (MG), CNPJ nº '+$P{CNPJC}+', mediante as cláusulas e condições abaixo:']]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<lastPageFooter>
+		<band height="802">
+			<staticText>
+				<reportElement uuid="c0ebfe0c-8194-4b29-98e9-c2f4683100be" x="17" y="5" width="521" height="174"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[
+
+III) VENCIDA E NÃO PAGA QUALQUER DAS PARCELAS DA ANUIDADE, CARACTERIZANDO A INADIMPLÊNCIA DO CONTRA-TANTE, RESERVA-SE A CONTRATADA O DIREITO DE  NÃO  RENOVAR A MATRÍCULA DO ALUNO BENEFICIÁRIO PARA O ANO LETIVO SEGUINTE, SEM PREJUÍZO DA COBRANÇA JUDICIAL DO DÉBITO E APLICAÇÃO DE MEDIDAS PEDAGÓGICAS E ADMINISTRATIVAS PERMITIDAS POR LEI.
+
+IV ) Havendo alteração na política de preços e salários em decorrência de lei, ou devido a intervenção do Governo Federal, com reflexos
+      diretos nos custos estimados  na  planilha  de  custos  elaborada  como determina a legislação vigente sobre a matéria, as partes se comprometem, desde logo, a efetuar a adequação do presente contrato à nova realidade, mediante instrumento de re-ratificação.
+
+ V) O presente contrato poderá ser rescindido pelo CONTRATANTE, desde que a CONTRATADA seja comunicada, por  escrito, COM
+      ANTECEDÊNCIA MÍNIMA DE 30 (TRINTA) DIAS, sendo devido o pagamento desse período, E QUE ESTEJA RIGOROSAMENTE  EM DIA com as parcelas da mensalidade escolar.
+ §  único - A simples infrequência às aulas e/ou a não participação nas atividades escolares, sem a comunicação de que trata o “caput”,  ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7569f680-bdad-46ee-af58-062f5771bf77" x="17" y="179" width="521" height="12"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[não desobriga  o  CONTRATANTE do  pagamento  das  parcelas contratadas.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b58af70a-6ac6-4229-a762-c54b14da4d3f" x="17" y="191" width="521" height="336"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<text><![CDATA[VI) A CONTRATADA SE RESERVA O DIREITO DE CANCELAR O CONTRATO E A MATRÍCULA, BEM COMO DE NÃO FIRMÁ-LO
+      PARA O PERÍODO SEGUINTE, EXPEDINDO A TRANSFERÊNCIA DO ALUNO, POR MOTIVO DISCIPLINAR OU DE  INCOMPATIBILIDADE COM O REGIME  DA  ESCOLA,  BEM COMO DE DIVERGÊNCIA OU CONFLITO ENTRE OS CONTRATANTES E DE INADIMPLÊNCIA.
+
+ VII) Além das obrigações previstas neste contrato, o CONTRATANTE obriga-se a adquirir todo o  material  escolar  individual  exigido
+      pelo estabelecimento de ensino e a fazer  com que  o aluno  use o  uniforme escolar completo e cumpra o Regimento Interno da CONTRATADA, o calendário escolar e os horários fixados pela Escola, assumindo total responsabilidade pelas consequências advindas do descumprimento dessas obrigações.
+
+VIII) O CONTRATANTE, neste ato, assume total responsabilidade quanto às declarações prestadas neste contrato e no
+     Requerimento de Matrícula, relativas à aptidão legal do aluno beneficiário para a  matrícula e frequência na turma e grau indicados, obrigando-se a entregar, no prazo estabelecido pela legislação escolar vigente, os documentos comprobatórios daquelas declarações e dos demais exigidos por lei.
+§   único - Após a conferência, pela CONTRATADA, da documentação de que trata o “caput”, no prazo de 30 ( trinta) dias, caso não
+      preencha os requisitos legais, ESTARÁ ESSE CONTRATO AUTOMATICAMENTE RESCINDIDO, COM O CONSEQUENTE  CANCELAMENTO DA VAGA ABERTA PARA O ALUNO BENEFICIÁRIO, PERDENDO O CONTRATANTE O VALOR DA PRIMEIRA PARCELA PAGA.
+IX) Fica acordado entre as partes que a CONTRATADA poderá valer-se do aluno beneficiário para o encaminhamento à  CONTRATANTE de todo e qualquer comunicado relacionado com a atividade escolar e a fiel aplicação do previsto neste         contrato.
+
+  X )  O presente contrato tem validade de quinze meses úteis, extinguindo-se ao final deste prazo.
+
+  XI) As partes acordam que, para a resolução de toda e qualquer controvérsia que surgir da interpretação ou execução do presente contrato, fica eleito o foro da cidade de Belo Horizonte, estado de Minas Gerais, com renúncia expressa de qualquer outro foro, por
+      mais especial ou privilegiado que seja, ainda que venha a ocorrer mudança de domicílio do contratante.
+
+
+          E assim, por estarem justos e contratados, assinam o presente, em duas vias, para os mesmos fins e efeitos. ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c1dbaf67-785e-4ad5-bec2-be7bbace2473" x="17" y="544" width="521" height="51"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow"/>
+				</textElement>
+				<textFieldExpression><![CDATA[' '+$P{CIDADEC}+'-MG, ______ de ____________________________ de 2012.']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8cc9776a-7c92-4b3e-a539-bab711d2d3b7" x="17" y="611" width="521" height="70"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+_________________________________________________________
+CONTRATANTE
+]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8cc9776a-7c92-4b3e-a539-bab711d2d3b7" x="17" y="681" width="521" height="71"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Narrow" isBold="true"/>
+				</textElement>
+				<text><![CDATA[
+_________________________________________________________
+CONTRATADO ]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="89d1f1a2-f82c-4818-b4de-6aa0666b9c5a" x="0" y="1" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="18bc7fc1-bbad-494f-922b-481add3671cb" x="1" y="2" width="1" height="777"/>
+			</line>
+			<line>
+				<reportElement uuid="1a4ea4f6-adf6-4000-a74b-f77c1a2605ee" x="2" y="779" width="553" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="31b590b2-9442-46ab-aa6f-ae52cf93d2b0" x="555" y="2" width="1" height="777"/>
+			</line>
+		</band>
+	</lastPageFooter>
+</jasperReport>

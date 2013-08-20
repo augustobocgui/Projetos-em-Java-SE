@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Trancamento" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="79c239f8-c746-4aee-82e9-0507387114cb">
+	<property name="ireport.zoom" value="1.2100000000000017"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="160"/>
+	<parameter name="NOME" class="java.lang.String"/>
+	<parameter name="CURSO" class="java.lang.String"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<parameter name="APOSTILA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`CODIGO` AS cliente_CODIGO,
+     cliente.`NOME` AS cliente_NOME,
+     cliente.`NASCIMENTO` AS cliente_NASCIMENTO,
+     cliente.`CPF` AS cliente_CPF,
+     cliente.`TELEFONE` AS cliente_TELEFONE,
+     cliente.`ENDERECO` AS cliente_ENDERECO,
+     cliente.`NUMERO` AS cliente_NUMERO,
+     cliente.`BAIRRO` AS cliente_BAIRRO,
+     cliente.`UF` AS cliente_UF,
+     cliente.`CIDADE` AS cliente_CIDADE,
+     cliente.`EMAIL` AS cliente_EMAIL,
+     cliente.`DESCONTO` AS cliente_DESCONTO,
+     cliente.`SEXO` AS cliente_SEXO,
+     cliente.`CELULAR` AS cliente_CELULAR,
+     cliente.`CEP` AS cliente_CEP,
+     cliente.`LOCALIDADE` AS cliente_LOCALIDADE
+FROM
+     `cliente` cliente]]>
+	</queryString>
+	<field name="cliente_CODIGO" class="java.lang.Integer"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<field name="cliente_NASCIMENTO" class="java.lang.String"/>
+	<field name="cliente_CPF" class="java.lang.String"/>
+	<field name="cliente_TELEFONE" class="java.lang.String"/>
+	<field name="cliente_ENDERECO" class="java.lang.String"/>
+	<field name="cliente_NUMERO" class="java.lang.String"/>
+	<field name="cliente_BAIRRO" class="java.lang.String"/>
+	<field name="cliente_UF" class="java.lang.String"/>
+	<field name="cliente_CIDADE" class="java.lang.String"/>
+	<field name="cliente_EMAIL" class="java.lang.String"/>
+	<field name="cliente_DESCONTO" class="java.lang.Float"/>
+	<field name="cliente_SEXO" class="java.lang.String"/>
+	<field name="cliente_CELULAR" class="java.lang.String"/>
+	<field name="cliente_CEP" class="java.lang.String"/>
+	<field name="cliente_LOCALIDADE" class="java.lang.Integer"/>
+	<title>
+		<band height="792" splitType="Stretch">
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="9d956953-e121-41d2-bfd9-43fed78ea99f" x="28" y="160" width="502" height="507"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\MarcaDaguaSeedsTrancamento.png"]]></imageExpression>
+			</image>
+			<image hAlign="Center" vAlign="Middle">
+				<reportElement uuid="deb6bcf8-4d35-476d-8c7b-4189cea90fca" x="11" y="47" width="110" height="112"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\logoSeedsRelatorio.png"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="cd0eb1bb-845b-4f48-afb1-e139cac1e9ca" key="staticText" x="28" y="10" width="502" height="22"/>
+				<box>
+					<pen lineWidth="2.0" lineStyle="Solid"/>
+					<topPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEEDS - SPEAK EASY ENGLISH DIALOGUE SCHOOL – MÉTODO E .L .F. O. DE ENSINO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="94bcabd4-9a1e-4978-a22b-9bedbc5cb1e4" key="staticText" x="28" y="47" width="502" height="32"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Speak Easy English Dialogue School – SEEDS/AFINASA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bd3f9979-de5b-4ade-bf1e-479dfef0f097" x="28" y="79" width="502" height="80"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Associação Nazarena de Amparo Social
+CNPJ: 07. 003.661/0001-10
+Sob os termos do Artigo 24, da Lei 5.692 de 11/08/1971,
+ do Conselho Federal de Educação
+Utilidade Pública Municipal Lei 3.376 de 22/12/2004]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c8f5b711-514a-4ad2-9b43-cdc0669fa1b9" x="28" y="159" width="502" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="adc29657-117f-41a2-b93f-dd3dffa9fa06" x="28" y="234" width="502" height="120"/>
+				<textElement textAlignment="Justified" verticalAlignment="Bottom">
+					<font fontName="Baskerville Old Face" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA['Declaro para todos os fins de direito que, o aluno(a) '+$P{NOME}+', por problemas de foro pessoal, está trancando a matrícula  do curso '+$P{CURSO}+'. O aluno(a) deixou de freqüentar as aulas no mês '+$P{MES}.toLowerCase()+' e parou na apostila '+$P{APOSTILA}+'.']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="238ffe7f-1160-4e15-a11a-ab0e5d2d7765" x="28" y="214" width="502" height="20"/>
+				<textElement textAlignment="Center">
+					<font fontName="Baskerville Old Face" size="20" isBold="true" isItalic="false" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[D E C L A R A Ç Ã O  D E  T R A N C A M E N T O ]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="d40fe210-eecd-421a-ad01-98636562f2c3" x="260" y="479" width="270" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="20"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="a04c5305-2036-41db-9df9-640d238aa851" x="28" y="354" width="502" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="20"/>
+				</textElement>
+				<text><![CDATA[ Por ser verdade firmo o presente termo.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3cdf1049-ba7e-4551-9499-05e708191404" x="28" y="479" width="232" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="20"/>
+				</textElement>
+				<text><![CDATA[Montes Claros, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="66fa0252-670c-42e4-8a51-bd5a1fd9977a" x="28" y="584" width="502" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="20" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[Assinatura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cb40119f-e316-415a-b29d-f219e5f1d79c" x="28" y="667" width="502" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Baskerville Old Face" size="16"/>
+				</textElement>
+				<text><![CDATA[SEEDS/AFINASA]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="76ec1467-6011-497c-9b74-8aa8e5f0df74" x="0" y="1" width="555" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="af2a0381-4742-49ab-9ac8-b01a4c4185ce" x="0" y="2" width="1" height="790"/>
+			</line>
+			<line>
+				<reportElement uuid="c8ba9296-c654-4711-98c9-b3274ab94738" x="555" y="2" width="1" height="790"/>
+			</line>
+			<staticText>
+				<reportElement uuid="122b1377-621b-4ac7-9397-cdc9931e9bb7" x="28" y="751" width="502" height="27"/>
+				<box>
+					<pen lineWidth="2.0"/>
+					<topPen lineWidth="2.0" lineStyle="Solid"/>
+					<leftPen lineWidth="2.0" lineStyle="Solid"/>
+					<bottomPen lineWidth="2.0" lineStyle="Solid"/>
+					<rightPen lineWidth="2.0" lineStyle="Solid"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Berlin Sans FB" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Padre Augusto, 335 – 2º andar – Sala. 104 – Centro – Montes Claros – MG – Fone: 3221-6288
+Rua Pires Albuquerque, 282 -Centro – Montes Claros – MG – Fone:3221-0828
+]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="5d558954-ab9a-4186-9e51-57b385fece64" x="1" y="791" width="554" height="1"/>
+			</line>
+		</band>
+	</title>
+</jasperReport>

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="recibosImpressora" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ceaabea-9593-48e0-89d6-8d6121c6b2a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="VALOR" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     matricula.`ALUNO` AS matricula_ALUNO,
+     matricula.`TURMA` AS matricula_TURMA,
+     matricula.`LOCALIDADE` AS matricula_LOCALIDADE,
+     turma.`DIA` AS turma_DIA,
+     turma.`HI` AS turma_HI,
+     turma.`HF` AS turma_HF,
+     turma.`CURSO` AS turma_CURSO,
+     recibos.`CODIGO` AS recibos_CODIGO,
+     recibos.`VALOR` AS recibos_VALOR,
+     recibos.`MATRICULA` AS recibos_MATRICULA,
+     recibos.`DATA` AS recibos_DATA,
+     cliente.`NOME` AS cliente_NOME
+FROM
+     `matricula` matricula INNER JOIN `recibos` recibos ON matricula.`CODIGO` = recibos.`MATRICULA`
+     INNER JOIN `turma` turma ON matricula.`TURMA` = turma.`CODIGO`
+     INNER JOIN `cliente` cliente ON matricula.`ALUNO` = cliente.`CODIGO`
+     AND cliente.`LOCALIDADE` = matricula.`LOCALIDADE`
+WHERE
+     recibos.codigo BETWEEN $P{VALOR}and$P{VALOR}]]>
+	</queryString>
+	<field name="matricula_ALUNO" class="java.lang.Integer"/>
+	<field name="matricula_TURMA" class="java.lang.Integer"/>
+	<field name="matricula_LOCALIDADE" class="java.lang.Integer"/>
+	<field name="turma_DIA" class="java.lang.String"/>
+	<field name="turma_HI" class="java.lang.String"/>
+	<field name="turma_HF" class="java.lang.String"/>
+	<field name="turma_CURSO" class="java.lang.String"/>
+	<field name="recibos_CODIGO" class="java.lang.Integer"/>
+	<field name="recibos_VALOR" class="java.lang.Double"/>
+	<field name="recibos_MATRICULA" class="java.lang.Integer"/>
+	<field name="recibos_DATA" class="java.lang.String"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<group name="contas_receber_contrato_codigo">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="13" splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="386" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ae2070e3-cca6-474e-b0b6-b01b785c4867" x="1" y="53" width="77" height="34"/>
+				<box>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Recibo Nº.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="1" y="2" width="227" height="51"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ea39aeef-0338-4e93-9e5c-0f0431013b33" x="228" y="2" width="326" height="29"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144e33b-faf1-4f2a-9e20-5914af091f36" x="228" y="31" width="57" height="22"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" isBold="false"/>
+				</textElement>
+				<text><![CDATA[>>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="60dcd6b0-cac1-456e-89fb-127d8df1f20f" x="177" y="53" width="69" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="02b2c4ac-9da2-4549-b18a-021503eeef6a" x="246" y="53" width="39" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="3b5f959b-dec3-4a0c-a8d9-39f5df4bdd2c" x="1" y="87" width="92" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  Recebemos de]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="d8bec6f3-7625-4514-bcc0-8b567cda97a4" x="385" y="53" width="169" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Modalidade.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="0bb49601-4fb0-41ed-aa7a-c2fba3869d86" x="149" y="183" width="298" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Para seu documento, firm (o) (mos) o presente recibo.
+]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="5e25576e-04e8-4fd2-8db0-e266682549b3" x="279" y="236" width="141" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c8bbf17e-9374-461a-a702-a385d2209af2" x="185" y="236" width="94" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Montes Claros,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b3b3689-a36b-412b-9422-f0ab34600e62" x="149" y="292" width="298" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jonkélion Dourado - Presidente]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="30d00fe8-35a8-44bf-b531-0bf30e2b44d6" x="0" y="2" width="1" height="374"/>
+			</line>
+			<line>
+				<reportElement uuid="30d00fe8-35a8-44bf-b531-0bf30e2b44d6" x="554" y="2" width="1" height="374"/>
+			</line>
+			<staticText>
+				<reportElement uuid="7d129804-0b8a-4220-938a-bb4a387ee8e2" x="1" y="331" width="553" height="45"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Padre Augusto, 335 - 2º Andar - Centro - Montes Claros / MG - Fone: (38) 3221-6288 / 3082-2098]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="c8b074d5-d380-41ba-a453-317d63120eb8" x="78" y="53" width="99" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="1295c605-ecd2-40c6-b7b6-bb1695bedecd" x="285" y="53" width="100" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_VALOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="913ed97b-63f5-4a33-879f-148604a413d9" x="93" y="87" width="309" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_NOME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6acd35c0-04ce-4f05-ade8-669e0ff04fb2" x="402" y="87" width="85" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[, matrícula nº ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="58d7aa01-bee1-41f8-b26d-f31486c548bc" x="487" y="87" width="67" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{recibos_MATRICULA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3078c4b5-f52b-40ed-ace0-1283cf7b74ba" x="1" y="107" width="77" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  A quantia de]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="b5cea8ed-e99a-4480-9bf7-ebcd42e3ceb0" x="78" y="107" width="476" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{recibos_VALOR}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="5c8418c7-7ddf-42b7-ac4b-7f82cf846e18" x="1" y="127" width="81" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[  Referente ao ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="23abcc01-416e-423d-9530-efa0165972a8" x="82" y="127" width="472" height="20"/>
+				<box>
+					<bottomPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turma_CURSO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d660f436-7641-4027-8b44-a56ca61bf78e" x="1" y="147" width="77" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[  Turma/Dia: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4316c69d-fdff-4f0e-8b12-3b15c2a2c662" x="78" y="147" width="47" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{matricula_TURMA}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f2bdf98f-4dbb-4546-ae2f-338f9e5e080d" x="125" y="147" width="79" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turma_DIA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8bcc89c7-5b6e-4620-803f-c003e0b3df8d" x="204" y="147" width="13" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="97782295-fe42-43b6-9280-2e360b98b1e5" x="255" y="147" width="17" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[às]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="b3e103e1-1ae1-4a54-ac5b-2e6d44606f03" x="217" y="147" width="38" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turma_HI}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="732cde17-c2cf-498c-bfbc-ceb753fe5d18" x="272" y="147" width="43" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turma_HF}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1144e33b-faf1-4f2a-9e20-5914af091f36" x="497" y="31" width="57" height="22"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" isBold="false"/>
+				</textElement>
+				<text><![CDATA[<<]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="214faf23-05c9-4aa4-b6eb-73828b8b21b5" x="285" y="31" width="212" height="22"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{turma_CURSO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

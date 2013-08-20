@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Professores" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="990b0530-41a2-4802-bca3-e2e6304c62d9">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     professor.`CODIGO` AS professor_CODIGO,
+     professor.`NOME` AS professor_NOME,
+     professor.`ENDERECO` AS professor_ENDERECO,
+     professor.`NUMERO` AS professor_NUMERO,
+     professor.`COMPLEMENTO` AS professor_COMPLEMENTO,
+     professor.`BAIRRO` AS professor_BAIRRO,
+     professor.`CIDADE` AS professor_CIDADE,
+     professor.`CEP` AS professor_CEP,
+     professor.`PABX` AS professor_PABX,
+     professor.`FAX` AS professor_FAX,
+     professor.`CPF` AS professor_CPF,
+     professor.`CNPJ` AS professor_CNPJ,
+     professor.`HOME_PAGE` AS professor_HOME_PAGE,
+     professor.`EMAIL` AS professor_EMAIL
+FROM
+     `professor` professor]]>
+	</queryString>
+	<field name="professor_CODIGO" class="java.lang.Integer"/>
+	<field name="professor_NOME" class="java.lang.String"/>
+	<field name="professor_ENDERECO" class="java.lang.String"/>
+	<field name="professor_NUMERO" class="java.lang.String"/>
+	<field name="professor_COMPLEMENTO" class="java.lang.String"/>
+	<field name="professor_BAIRRO" class="java.lang.String"/>
+	<field name="professor_CIDADE" class="java.lang.String"/>
+	<field name="professor_CEP" class="java.lang.String"/>
+	<field name="professor_PABX" class="java.lang.String"/>
+	<field name="professor_FAX" class="java.lang.String"/>
+	<field name="professor_CPF" class="java.lang.String"/>
+	<field name="professor_CNPJ" class="java.lang.String"/>
+	<field name="professor_HOME_PAGE" class="java.lang.String"/>
+	<field name="professor_EMAIL" class="java.lang.String"/>
+	<variable name="AlunosTotal" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{professor_CODIGO}]]></variableExpression>
+	</variable>
+	<variable name="AlunosTotalPag" class="java.lang.Integer" resetType="Page" calculation="Count">
+		<variableExpression><![CDATA[$F{professor_CODIGO}]]></variableExpression>
+	</variable>
+	<group name="matricula_TURMA" isStartNewPage="true">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="7a320c88-e132-42fc-9ec0-833f63244bed" x="0" y="48" width="555" height="31"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Professores]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="227" height="48"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="6e460df9-c62e-4955-90f9-2d35cb937c3b" x="506" y="0" width="49" height="38"/>
+				<imageExpression><![CDATA["..\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="38" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="e1738b38-d817-46ad-b0ea-8ec6c1b2f726" x="0" y="18" width="555" height="20" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="97b0ac58-c71c-47c0-88a6-a34824255e29" x="0" y="18" width="68" height="20" forecolor="#000000"/>
+				<box>
+					<pen lineColor="#000000"/>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineColor="#000000"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Código]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6bd762c3-dde5-4805-a4c4-8d6e559cde55" x="68" y="18" width="334" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="eb49927e-1f39-4855-8781-43a4294ab260" x="402" y="18" width="71" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Celular]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="2cc561b4-28e1-4253-9d33-df7fecd1d9f7" x="473" y="18" width="82" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Telefone]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="84" splitType="Stretch">
+			<textField>
+				<reportElement uuid="894f9bf0-2b04-489d-9767-03ae9f13923e" x="0" y="0" width="68" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_CODIGO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f7db2e87-f178-49f9-8d5b-1b3e9a3f6735" x="68" y="0" width="334" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_NOME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="8e3ee0e6-b9f3-44e5-a6ae-164eccae28a7" x="473" y="0" width="82" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_PABX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="9bee9b06-11ca-4ef5-ae38-b912d7acc8d7" x="402" y="0" width="71" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_FAX}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f776b317-129e-472c-8a7c-822334f2249b" x="68" y="20" width="217" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_ENDERECO}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="151ae943-6ee4-446c-8932-86eed79c0d4d" x="0" y="20" width="68" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Logradouro:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9b71f49e-7630-4521-971b-160db8155607" x="285" y="20" width="61" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_NUMERO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="eb01cb4f-db15-4abd-8d1f-3966310545f0" x="346" y="20" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_BAIRRO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ceba5696-51d8-41a8-8c8d-412e43e42e4f" x="446" y="20" width="109" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_CIDADE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="857da226-e11d-438e-85d3-d95ef1a03dd5" x="68" y="40" width="487" height="20"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{professor_EMAIL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="ebcdc29c-b394-495f-b8d0-57856e400260" x="0" y="40" width="68" height="20"/>
+				<box>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Email:]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="50">
+			<textField>
+				<reportElement uuid="0dfd85a1-4947-4d77-b992-54601486d885" x="435" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8962698b-bdaa-42aa-b956-1be6d89def07" x="229" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0c42b107-5907-4351-a668-0791b317de4b" x="516" y="30" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="4493b189-d0da-442f-89b6-9ee0a118a4d0" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f5c9db35-5704-4e43-9dc4-2e3a6a8401a4" key="staticText" x="1" y="0" width="454" height="20" forecolor="#CC0000"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Total parcial professores: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="f5360ef4-33be-426c-be42-cc75c2fb988d" x="455" y="0" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{AlunosTotalPag}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<lastPageFooter>
+		<band height="50">
+			<textField>
+				<reportElement uuid="0dfd85a1-4947-4d77-b992-54601486d885" x="435" y="30" width="81" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página " + $V{PAGE_NUMBER} + " de "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="8962698b-bdaa-42aa-b956-1be6d89def07" x="229" y="30" width="100" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Seeds]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0c42b107-5907-4351-a668-0791b317de4b" x="516" y="30" width="39" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy h.mm a">
+				<reportElement uuid="4493b189-d0da-442f-89b6-9ee0a118a4d0" x="0" y="30" width="100" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="52afb55e-5c9a-4dd9-939c-19034b99f641" x="455" y="0" width="100" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$V{AlunosTotal}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="f5c9db35-5704-4e43-9dc4-2e3a6a8401a4" key="staticText" x="1" y="0" width="454" height="20" forecolor="#CC0000"/>
+				<box>
+					<topPen lineWidth="1.0" lineColor="#000000"/>
+					<leftPen lineWidth="1.0" lineColor="#000000"/>
+					<bottomPen lineWidth="1.0" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Total professores: ]]></text>
+			</staticText>
+		</band>
+	</lastPageFooter>
+</jasperReport>

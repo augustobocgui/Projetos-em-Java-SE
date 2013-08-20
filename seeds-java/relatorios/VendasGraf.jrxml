@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="VendasGraf" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5146d0f-a6dd-4bda-bf0f-3ad0da259919">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="16"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="VALOR" class="java.lang.String"/>
+	<parameter name="VALOR_FINAL" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     entradacaixa.`Codigo` AS entradacaixa_Codigo,
+     entradacaixa.`Data` AS entradacaixa_Data,
+     entradacaixa.`Operacao` AS entradacaixa_Operacao,
+     entradacaixa.`Valor` AS entradacaixa_Valor,
+     entradacaixa.`Quantidade` AS entradacaixa_Quantidade
+FROM
+     `entradacaixa` entradacaixa
+where entradacaixa.Data between $P{VALOR} and $P{VALOR_FINAL}]]>
+	</queryString>
+	<field name="entradacaixa_Codigo" class="java.lang.Integer"/>
+	<field name="entradacaixa_Data" class="java.lang.String"/>
+	<field name="entradacaixa_Operacao" class="java.lang.String"/>
+	<field name="entradacaixa_Valor" class="java.lang.Float"/>
+	<field name="entradacaixa_Quantidade" class="java.lang.Integer"/>
+	<title>
+		<band height="95" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="c9d26bf8-1a9d-4e13-9d44-e37dfacfe2d5" x="229" y="0" width="573" height="47"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Caixa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="229" height="93"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="fbe2e74d-0b7c-4129-a0f0-d427ff0f6e1f" x="802" y="47" width="1" height="48"/>
+			</line>
+		</band>
+	</title>
+	<lastPageFooter>
+		<band height="458">
+			<lineChart>
+				<chart>
+					<reportElement uuid="e76d29eb-77ea-4b43-91a4-b150029e6c0e" x="0" y="-2" width="802" height="456"/>
+					<box>
+						<leftPen lineWidth="1.0"/>
+						<bottomPen lineWidth="1.0"/>
+						<rightPen lineWidth="1.0"/>
+					</box>
+					<chartTitle/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{entradacaixa_Operacao}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{entradacaixa_Data}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{entradacaixa_Valor}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<linePlot>
+					<plot/>
+				</linePlot>
+			</lineChart>
+		</band>
+	</lastPageFooter>
+</jasperReport>

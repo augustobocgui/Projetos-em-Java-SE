@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="EstoqueGraf" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="31cc823f-3359-4294-ac18-1a208b4a53d6">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     subprodutos.`Codigo` AS subprodutos_Codigo,
+     subprodutos.`Nome` AS subprodutos_Nome,
+     subprodutos.`Quantidade` AS subprodutos_Quantidade,
+     subprodutos.`QuantidadeMin` AS subprodutos_QuantidadeMin
+FROM
+     `subprodutos` subprodutos]]>
+	</queryString>
+	<field name="subprodutos_Codigo" class="java.lang.Integer"/>
+	<field name="subprodutos_Nome" class="java.lang.String"/>
+	<field name="subprodutos_Quantidade" class="java.lang.Long"/>
+	<field name="subprodutos_QuantidadeMin" class="java.lang.Long"/>
+	<title>
+		<band height="90" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="0" y="0" width="229" height="90"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<leftPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c9d26bf8-1a9d-4e13-9d44-e37dfacfe2d5" x="229" y="0" width="573" height="47"/>
+				<box>
+					<topPen lineWidth="2.0"/>
+					<bottomPen lineWidth="2.0"/>
+					<rightPen lineWidth="2.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estoque]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="fbe2e74d-0b7c-4129-a0f0-d427ff0f6e1f" x="802" y="47" width="1" height="43"/>
+			</line>
+		</band>
+	</title>
+	<lastPageFooter>
+		<band height="465">
+			<stackedBarChart>
+				<chart>
+					<reportElement uuid="e6b49ef1-42ea-4168-940f-a8301f1babc1" x="0" y="0" width="802" height="465"/>
+					<box>
+						<leftPen lineWidth="1.0" lineStyle="Solid"/>
+						<bottomPen lineWidth="1.0" lineStyle="Solid"/>
+						<rightPen lineWidth="1.0" lineStyle="Solid"/>
+					</box>
+					<chartTitle position="Top"/>
+					<chartSubtitle/>
+					<chartLegend/>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{subprodutos_QuantidadeMin} + ' Mínimo']]></seriesExpression>
+						<categoryExpression><![CDATA[$F{subprodutos_Nome}]]></categoryExpression>
+						<valueExpression><![CDATA[$F{subprodutos_Quantidade}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<barPlot>
+					<plot orientation="Horizontal"/>
+					<itemLabel/>
+				</barPlot>
+			</stackedBarChart>
+		</band>
+	</lastPageFooter>
+</jasperReport>

@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ceaabea-9593-48e0-89d6-8d6121c6b2a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     contas_receber_contrato.`codigo` AS contas_receber_contrato_codigo,
+     contas_receber_contrato.`codigo_cliente` AS contas_receber_contrato_codigo_cliente,
+     contas_receber_contrato.`parcela` AS contas_receber_contrato_parcela,
+     contas_receber_contrato.`data_emissao` AS contas_receber_contrato_data_emissao,
+     contas_receber_contrato.`data_pagamento` AS contas_receber_contrato_data_pagamento,
+     contas_receber_contrato.`desconto` AS contas_receber_contrato_desconto,
+     contas_receber_contrato.`valor` AS contas_receber_contrato_valor,
+     contas_receber_contrato.`total` AS contas_receber_contrato_total,
+     contas_receber_contrato.`valor_pago` AS contas_receber_contrato_valor_pago,
+     contas_receber_contrato.`juros` AS contas_receber_contrato_juros,
+     contas_receber_contrato.`codigo_contrato` AS contas_receber_contrato_codigo_contrato,
+     cliente.`CODIGO` AS cliente_CODIGO,
+     cliente.`NOME` AS cliente_NOME
+FROM
+     `cliente` cliente INNER JOIN `contas_receber_contrato` contas_receber_contrato ON cliente.`CODIGO` = contas_receber_contrato.`codigo_cliente`]]>
+	</queryString>
+	<field name="contas_receber_contrato_codigo" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_codigo_cliente" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_parcela" class="java.lang.Integer"/>
+	<field name="contas_receber_contrato_data_emissao" class="java.lang.String"/>
+	<field name="contas_receber_contrato_data_pagamento" class="java.lang.String"/>
+	<field name="contas_receber_contrato_desconto" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_valor" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_total" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_valor_pago" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_juros" class="java.lang.Double"/>
+	<field name="contas_receber_contrato_codigo_contrato" class="java.lang.Integer"/>
+	<field name="cliente_CODIGO" class="java.lang.Integer"/>
+	<field name="cliente_NOME" class="java.lang.String"/>
+	<group name="contas_receber_contrato_codigo">
+		<groupExpression><![CDATA[$F{contas_receber_contrato_codigo}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="13" splitType="Stretch"/>
+	</title>
+	<detail>
+		<band height="386" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="ae2070e3-cca6-474e-b0b6-b01b785c4867" x="1" y="53" width="77" height="34"/>
+				<box>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Recibo Nº.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="1" y="2" width="227" height="51"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ea39aeef-0338-4e93-9e5c-0f0431013b33" x="228" y="2" width="326" height="29"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Curso:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="1144e33b-faf1-4f2a-9e20-5914af091f36" x="228" y="31" width="326" height="22"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial Black" isBold="false"/>
+				</textElement>
+				<text><![CDATA[M E N S A L I D A D E]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4a4e6613-135a-4099-abd0-e9601f523577" x="198" y="53" width="48" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_parcela}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="60dcd6b0-cac1-456e-89fb-127d8df1f20f" x="147" y="53" width="51" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Parcela:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.00">
+				<reportElement uuid="98b229f0-3087-4db0-b0b1-c89f53d73378" x="285" y="53" width="100" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_valor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="02b2c4ac-9da2-4549-b18a-021503eeef6a" x="246" y="53" width="39" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="033a4cdc-67a6-4d2e-8cf0-c062b416a90a" x="55" y="87" width="80" height="30"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_codigo_cliente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="3b5f959b-dec3-4a0c-a8d9-39f5df4bdd2c" x="1" y="87" width="54" height="30"/>
+				<box>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[  Código:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="1787d7b5-e44d-4484-a180-6c6494c5bb96" x="135" y="87" width="419" height="30"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cliente_NOME}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="d8bec6f3-7625-4514-bcc0-8b567cda97a4" x="385" y="53" width="169" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12"/>
+				</textElement>
+				<text><![CDATA[Modalidade.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d710a3ef-fe16-4e1a-a41d-b81d45c87291" x="78" y="53" width="69" height="34"/>
+				<box>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contas_receber_contrato_codigo_contrato}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="0bb49601-4fb0-41ed-aa7a-c2fba3869d86" x="155" y="206" width="298" height="22"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Para seu documento, firm (o) (mos) o presente recibo.
+]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="5e25576e-04e8-4fd2-8db0-e266682549b3" x="285" y="240" width="141" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c8bbf17e-9374-461a-a702-a385d2209af2" x="191" y="240" width="94" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Montes Claros,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8d0ca0a1-b265-40fd-a92a-6cf5c8f76497" x="146" y="163" width="82" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Responsável:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="4b3b3689-a36b-412b-9422-f0ab34600e62" x="155" y="285" width="298" height="20"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jonkélion Dourado - Presidente]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="30d00fe8-35a8-44bf-b531-0bf30e2b44d6" x="0" y="2" width="1" height="374"/>
+			</line>
+			<line>
+				<reportElement uuid="30d00fe8-35a8-44bf-b531-0bf30e2b44d6" x="554" y="2" width="1" height="374"/>
+			</line>
+			<staticText>
+				<reportElement uuid="7d129804-0b8a-4220-938a-bb4a387ee8e2" x="1" y="331" width="553" height="45"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Padre Augusto, 335 - 2º Andar - Centro - Montes Claros / MG - Fone: (38) 3221-6288 / 3082-2098]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="c1bf565a-cb22-4fef-a1f4-3166a4619a8f" x="228" y="182" width="287" height="1"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

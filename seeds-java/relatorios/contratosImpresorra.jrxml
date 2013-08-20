@@ -1,0 +1,362 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="contratos" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ceaabea-9593-48e0-89d6-8d6121c6b2a3">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="374"/>
+	<parameter name="NOME" class="java.lang.String"/>
+	<parameter name="DINHEIRO" class="java.lang.String"/>
+	<parameter name="DINHEIROEX" class="java.lang.String"/>
+	<parameter name="MES" class="java.lang.String"/>
+	<parameter name="TURMA" class="java.lang.String"/>
+	<parameter name="DIA" class="java.lang.String"/>
+	<parameter name="HI" class="java.lang.String"/>
+	<parameter name="HF" class="java.lang.String"/>
+	<parameter name="PROFESSOR" class="java.lang.String"/>
+	<parameter name="ANO" class="java.lang.String"/>
+	<parameter name="DATA" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     cliente.`CODIGO` AS cliente_CODIGO
+FROM
+     `cliente` cliente
+where cliente.codigo between 1 and 1]]>
+	</queryString>
+	<field name="cliente_CODIGO" class="java.lang.Integer"/>
+	<group name="contas_receber_contrato_codigo">
+		<groupExpression><![CDATA[]]></groupExpression>
+	</group>
+	<title>
+		<band height="378" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="903b858a-d2bc-4190-a210-cfa66c4f3cee" x="14" y="10" width="529" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO/MENSALIDADE]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="1caaba89-593d-4b3b-9b64-66ae086a9722" x="1" y="0" width="554" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="135" y="35" width="283" height="51"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="46" y="112" width="77" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MATRÍCULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="146" y="112" width="89" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MENSALIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="258" y="112" width="87" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="368" y="112" width="35" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CD'S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="426" y="112" width="117" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CURSO DE FÉRIAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="23" y="112" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="123" y="112" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="235" y="112" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="345" y="112" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="403" y="112" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="691e2311-7c98-46de-95e3-ccd4e957d1e8" x="23" y="132" width="520" height="83"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA['Recebemos de '+$P{NOME}+', a quantia de R$ '+$P{DINHEIRO}+' ( '+$P{DINHEIROEX}+' ), Referente a '+$P{MES}+' / '+$P{ANO}+'. Turma/Dia: '+$P{TURMA}+' - '+$P{DIA}+' Horário: '+$P{HI}+' às '+$P{HF}+' Profº: '+$P{PROFESSOR}+' Parceria/Local:______________________________']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c86167c3-d87b-4f54-9b14-245ec8314638" x="98" y="216" width="355" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Por ser verdade, firmo o presente termo,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6745196-8898-4009-8985-61133be56a61" x="178" y="241" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Montes Claros, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f7383c00-0877-43dd-b00a-3aab7d0cb4ec" x="98" y="279" width="355" height="40"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEEDS/AFINASA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d129804-0b8a-4220-938a-bb4a387ee8e2" x="14" y="319" width="471" height="45"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Padre Augusto, 335 - sala 104 - Centro - Montes Claros - MG - Fone: (38) 3221-6288              Rua Pires e Albuquerque, Nº. 282 - Centro - Montes Claros - MG - Fone: (38) 3221-0828]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="8f3b2b02-66a5-4b1a-8e20-df8d72f00afa" x="1" y="1" width="1" height="373"/>
+			</line>
+			<line>
+				<reportElement uuid="42638980-7256-4a6f-986c-8cde6094db13" x="555" y="1" width="1" height="373"/>
+			</line>
+			<line>
+				<reportElement uuid="bfd9d883-4eca-4597-ac0e-dbb50a392097" x="2" y="374" width="553" height="1"/>
+			</line>
+			<image>
+				<reportElement uuid="bc7b9926-9805-4cc5-980b-4f2a06a77823" x="14" y="36" width="73" height="47"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="93332483-0e70-48c3-899b-452c64fdc738" x="495" y="317" width="60" height="50"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="3b68347d-271d-455b-b20a-a76db93604c9" x="278" y="241" width="175" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DATA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<detail>
+		<band height="422">
+			<staticText>
+				<reportElement uuid="903b858a-d2bc-4190-a210-cfa66c4f3cee" x="14" y="5" width="529" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[RECIBO/MENSALIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="41334242-b87d-48ad-bf99-88a940e5c962" x="135" y="30" width="283" height="51"/>
+				<box>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial"/>
+				</textElement>
+				<text><![CDATA[Associação Filantrópica N.de Amparo Social
+Utilidade Pública Municipal Lei 3.376 de
+22/12/2004 - CNPJ: 07.003.661/0001-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="46" y="107" width="77" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MATRÍCULA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="146" y="107" width="89" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[MENSALIDADE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="258" y="107" width="87" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[DECLARAÇÃO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="368" y="107" width="35" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CD'S]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="426" y="107" width="117" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="true"/>
+				</textElement>
+				<text><![CDATA[CURSO DE FÉRIAS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="23" y="107" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="123" y="107" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="235" y="107" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="345" y="107" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e6650e82-deeb-4c2c-8e2e-da0adaf03be5" x="403" y="107" width="23" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[(   )]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="691e2311-7c98-46de-95e3-ccd4e957d1e8" x="23" y="143" width="520" height="83"/>
+				<textElement textAlignment="Justified" verticalAlignment="Top">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA['Recebemos de '+$P{NOME}+', a quantia de R$ '+$P{DINHEIRO}+' ( '+$P{DINHEIROEX}+' ), Referente a '+$P{MES}+' / '+$P{ANO}+'. Turma/Dia: '+$P{TURMA}+' - '+$P{DIA}+' Horário: '+$P{HI}+' às '+$P{HF}+' Profº: '+$P{PROFESSOR}+' Parceria/Local:______________________________']]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c86167c3-d87b-4f54-9b14-245ec8314638" x="98" y="229" width="355" height="25"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Por ser verdade, firmo o presente termo,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6745196-8898-4009-8985-61133be56a61" x="178" y="254" width="100" height="20"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Montes Claros, ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f7383c00-0877-43dd-b00a-3aab7d0cb4ec" x="98" y="301" width="355" height="40"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Arial" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SEEDS/AFINASA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d129804-0b8a-4220-938a-bb4a387ee8e2" x="11" y="341" width="474" height="45"/>
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Rua Padre Augusto, 335 - sala 104 - Centro - Montes Claros - MG - Fone: (38) 3221-6288              Rua Pires e Albuquerque, Nº. 282 - Centro - Montes Claros - MG - Fone: (38) 3221-0828]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="d2af86bd-38af-45c9-b2b0-bd6643b21548" x="2" y="1" width="553" height="1"/>
+			</line>
+			<line>
+				<reportElement uuid="9c355de5-4bab-4ff4-a9f1-543340d30f6a" x="1" y="1" width="1" height="408"/>
+			</line>
+			<line>
+				<reportElement uuid="3d2cc55a-0633-4d7e-a310-4abb480f51ad" x="556" y="1" width="1" height="408"/>
+			</line>
+			<line>
+				<reportElement uuid="8045695e-1351-4ccc-a143-6deea8f10139" x="1" y="409" width="556" height="2"/>
+			</line>
+			<image>
+				<reportElement uuid="299bb9ee-8518-43f9-a9a6-6dbc39199db5" x="14" y="30" width="73" height="47"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement uuid="9684792d-041d-48ae-b71d-ec8b9a568d75" x="495" y="341" width="60" height="50"/>
+				<imageExpression><![CDATA["C:\\Users\\Guilherme\\Documents\\NetBeansProjects\\seeds-java\\relatorios\\logoSeedsRelatorios.png"]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement uuid="815d84d5-d453-4fb6-b42c-34b7b41de0fc" x="278" y="254" width="175" height="20"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{DATA}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
